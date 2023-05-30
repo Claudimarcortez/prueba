@@ -1,0 +1,124 @@
+body{
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+/* Estilos de la tabla de resultados */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 4px solid #c50841;
+ 
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  font-size: 20px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.item-image {
+  width: 150px;
+  height: 150px;
+  transition: transform 0.3s ease;
+}
+
+.item-image:hover {
+  transform: scale(1.67);
+  width: 250px;
+  height: 250px;
+}
+
+/* Estilos del formulario de búsqueda */
+.Buscar {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#search {
+  padding: 5px;
+}
+
+/* Estilos del menú de navegación */
+#menu {
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+  padding-left: 12%;
+}
+
+#menu li {
+  display: inline-block;
+}
+
+#menu li a {
+  display: block;
+  color: #555;
+  padding: 10px;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  background-color: #c50841;
+  border-radius: 10px;
+  color: #fff;
+}
+
+#cabeza {
+  background-color: #eee;
+  padding: 10px;
+}
+
+.inicioi {
+  background-color: #c50841;
+  color: #fff;
+  padding: 2px;
+}
+
+p {
+  text-align: center;
+}
+
+
+h1 {
+	text-align: center;
+	
+	
+}
+#pie {
+  background-color: #c50841;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+
+
+/* Estilos de la galería de cuadros */
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.gallery-item {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

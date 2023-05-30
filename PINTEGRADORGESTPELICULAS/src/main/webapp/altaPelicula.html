@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="estiloaltapelicula.css" type="text/css" media="all">
+
+<script>
+function validarFormulario() {
+    var titulo = document.forms["altaPelicula"]["titulo"].value;
+    var valoracion = document.forms["altaPelicula"]["valoracion"].value;
+
+    // Validar el título
+    if (titulo.length < 2 || titulo.length > 45) {
+        alert("El título debe tener entre 2 y 45 caracteres");
+        return false;
+    }
+
+    // Validar la valoración
+    if (valoracion < 1 || valoracion > 10) {
+        alert("La valoración debe estar entre 1 y 10");
+        return false;
+    }
+
+    return true;
+}
+</script>
+<title>Alta Película</title>
+
+</head>
+
+<body>
+	<div class="inicioi">
+		<p>MyMovieList</p>
+	</div>
+
+	<header id="cabeza">
+		<nav id="navegacion"> 
+			<ul id="menu">
+				<li><a href="index1.html">Inicio</a></li>
+				<li><a href="altaPelicula.html">Alta película</a></li>
+				<li><a href="galeria.html">Galería</a></li>
+				<li><a href="LogoutServlet">Cerrar Sesión</a></li>
+			</ul> 
+		</nav> 
+	</header>
+ 
+
+	<section class="agrupar">
+	
+		<div class="login-header">Registra una Película</div>
+		<div class="login">
+			<form class="login-container" name="altaPelicula" action="AltaPelicul" method="post" enctype="multipart/form-data" onsubmit="return validarFormulario();">
+			
+				<p><label>Título</label><input type="text" name="titulo" required></p>
+				<p><label>Género</label>
+					<select class="genero" name="genero">
+						<option value="Accion">Acción</option>
+						<option value="Comedia">Comedia</option>
+						<option value="Ciencia Ficcion">Ciencia Ficción</option>
+						<option value="Documental">Documental</option>
+						<option value="Drama">Drama</option>
+						<option value="Musical">Musical</option>
+						<option value="Romance">Romance</option>
+						<option value="Terror">Terror</option>
+					</select>
+				</p>
+			
+				<p><label>Foto</label><input type="file" name="foto"></p>
+				<p><label>Valoración</label><input type="number" name="valoracion" required max="10"></p>
+				
+				<!-- Se validan los datos y se envían los datos -->
+				<p><input type="submit" value="Guardar"></p>
+				<p><input type="reset" value="Borrar"></p>
+			</form>
+		</div>
+</section>
+
+
+</body>
+<footer id="pie">
+	MyMovieList: plataforma para registrar y consultar películas | Claudimar Cortez.
+</footer>
+</html>

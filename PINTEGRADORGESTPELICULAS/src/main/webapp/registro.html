@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="estilosreg.css" type="text/css" media="all">
+<style>
+	.error-message {
+		color: red;
+		margin-top: 5px;
+	}
+</style>
+
+<script>
+	function validateForm() {
+		var password = document.getElementById("password").value;
+		var confirmPassword = document.getElementById("confirm-password").value;
+		var passwordError = document.getElementById("password-error");
+		var passwordInfo = document.getElementById("password-info");
+
+		if (password !== confirmPassword) {
+			passwordError.textContent = "Las contraseñas no coinciden.";
+			return false;
+		}
+
+		if (password.length < 6) {
+			passwordInfo.textContent = "La contraseña debe tener mas de 5 caracteres.";
+			return false;
+		}
+
+		passwordError.textContent = "";
+		passwordInfo.textContent = "";
+		return true;
+	}
+</script>
+</head>
+<title>Registro de películas</title>
+
+<header>
+	<a href="Login.html" class="back-button">
+		<span class="back-arrow"></span> Volver 
+	</a>
+	<p>MyMovieList</p>
+</header>
+
+<body> 
+	<div class="contenedor">
+		<nav> 
+			<div class="login">
+				<h2 class="login-header">Regístrate</h2>
+				<form action="register" method="POST" onsubmit="return validateForm()">
+					<label for="full-name">Nombre completo:</label><br>
+					<input type="text" id="fullname" name="fullname" required><br>
+
+					<label for="username">Nombre de usuario:</label><br>
+					<input type="text" id="username" name="username" required><br>
+
+					<label for="email">Correo electrónico:</label><br>
+					<input type="email" id="email" name="email" required><br>
+
+					<label for="password">Contraseña:</label><br>
+					<input type="password" id="password" name="password" required>
+					<span id="password-info" class="password-info"></span><br>
+
+					<label for="confirm-password">Verificar contraseña:</label><br>
+					<input type="password" id="confirm-password" name="confirm-password" required><br>
+					<span id="password-error" class="error-message"></span>
+
+					<input type="submit" value="Registrarse">
+				</form>
+			</div>
+		</nav>
+	</div>
+
+	<footer id="pie">
+		MyMovieList: plataforma para registrar y consultar películas | Claudimar Cortez.
+	</footer>
+</body>
+</html>
+

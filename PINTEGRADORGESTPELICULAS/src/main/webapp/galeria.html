@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="estilosgaleria.css" type="text/css" media="all">
+<title>Insert title here</title>
+
+<script>
+function llamada(url) {
+    fetch(url)
+        .then(res => res.json())
+        .then(res => pintarResultados(res));
+}
+
+window.onload = function() {
+    llamada('Listar');
+}
+
+function pintarResultados(datos) {
+    let html = "<table border=1>";
+    html += "<tr><th>Lista de películas guardadas en la base de datos</th></tr>";
+    html += "<tr><th>Título</th><th>Género</th><th>Valoración</th><th>Imagen</th></tr>";
+    for (var i = 0; i < datos.length; i++) {
+        html += "<tr><td>" + datos[i].titulo + "</td><td>" + datos[i].genero + "</td><td>" + datos[i].valoracion + "</td><td><img class='item-image' src='fotos/" + datos[i].foto + "'> </td></tr>";
+    }
+
+    html += "</table>";
+    document.getElementById("resultados").innerHTML = html;
+}
+
+window.onload = function() {
+    llamada("Listar");
+}
+</script>
+
+<script>
+function buscarPeliculas() {
+    let searchValue = document.getElementById("search").value;
+    let url = `Buscar?query=${searchValue}`;
+
+    fetch(url)
+        .then((res) => res.json())
+        .then((res) => pintarResultados(res));
+}
+</script>
+
+</head>
+<body id="list">
+<div class="inicioi">
+    <p>MyMovieList</p>
+</div>
+<header id="cabeza">
+    <nav id="navegacion"> 
+        <ul id="menu">
+            <li><a href="index1.html">Inicio</a></li>
+            <li><a href="altaPelicula.html">Alta película</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="LogoutServlet">Cerrar Sesión</a></li>
+        </ul> 
+    </nav> 
+</header>
+<h1>Lista de películas</h1>
+<div class="Buscar">
+    Búsqueda de películas: <input type="search" id="search" name="busquedapelicula" placeholder="Título, género..">
+    <input type="button" value="Buscar" onclick="buscarPeliculas()">
+</div>
+	<div class="gallery">
+  <div class="gallery-item">
+    <img src="https://es.web.img2.acsta.net/c_310_420/pictures/23/03/15/17/30/1522817.jpg" alt="Pelicula 1">
+  </div>
+  <div class="gallery-item">
+    <img src="https://www.nacionflix.com/__export/1656077105482/sites/debate/img/2022/06/20/lightyear_de_disney_fracasa_en_la_primera_semana_en_taquilla_x1x.jpg_976912859.jpg" alt="Pelicula 2">
+  </div>
+  <div class="gallery-item">
+    <img src="https://imagenes.serpadres.es/files/vertical_composte_image/uploads/2022/09/20/6329d8ee068a7.jpeg" alt="Pelicula 3">
+  </div>
+  <div class="gallery-item">
+    <img src="https://lumiere-a.akamaihd.net/v1/images/sdk_latam_payoff_localized_bpo_6e4f16c1.jpeg?region=0%2C0%2C2100%2C3000" alt="Pelicula 4">
+  </div>
+  <div class="gallery-item">
+    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/raya-and-the-last-dragon-478061589-large-1657885385.jpg" alt="Pelicula 5">
+  </div>
+  <div class="gallery-item">
+    <img src="https://static.posters.cz/image/750/pinturas-sobre-lienzo-jurassic-park-classic-logo-i111309.jpg" alt="Pelicula 6">
+  </div>
+  <div class="gallery-item">
+    <img src="https://pics.filmaffinity.com/Dungeons_Dragons_Honor_entre_ladrones-501449261-large.jpg" alt="Pelicula 7">
+  </div>
+  <div class="gallery-item">
+    <img src="https://img.ecartelera.com/noticias/71900/71943-h3.jpg" alt="Pelicula 8">
+  </div>
+  <!-- Agrega más elementos de galería si es necesario -->
+</div>
+
+<div id="resultados">
+  <!-- Aquí se muestra la tabla de resultados -->
+</div>
+	
+
+<section>
+</section>
+</body>
+
+
+
+		<footer id="pie">
+			MyMovieList: plataforma para registrar y consultar películas | Claudimar Cortez.
+		</footer>
+
+</html>
