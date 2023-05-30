@@ -10,118 +10,73 @@ package modelo;
  * 
  */
 	//clase Administrador
+import java.util.Objects;
+
 public class Administrador {
+    private int id;
+    private String nombre;
+    private String correoElectronico;
+    private String contrasena;
 
-	// entidades 
-	/** 
-	 * id del administrador
-	 */
-	private int id;
-	/** nombre del administrador 
-	 * 
-	 */
-	private String nombre;
-	/** correo electronico del administrador 
-	 * 
-	 */
-	private String correoElectronico;
-	/** contrasena del administrado
-	 * 
-	 */
-	private String contrasena;
-	
-	/** Constructor de la clase Administrador con 4 parametros 
-	 * 
-	 * @param id
-	 * @param nombre
-	 * @param correoElectronico
-	 * @param contrasena
-	 */
-		public Administrador(int id, String nombre, String correoElectronico, String contrasena) {
-			super();
-			this.id = id;
-			this.nombre = nombre;
-			this.correoElectronico = correoElectronico;
-			this.contrasena = contrasena;
-		}
-		
-	
-	/**
-	 * 
-	 * @return
-	 */
-		
-	public int getId() {
-		return id;
-	}
-/**
- * 
- * @param id
- */
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+    public Administrador() {
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public Administrador(int id, String nombre, String correoElectronico, String contrasena) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correoElectronico = correoElectronico;
+        this.contrasena = contrasena;
+    }
 
-	/**
-	 * 
-	 * @param nombre
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+    public int getId() {
+        return id;
+    }
 
-	public String getCorreoElectronico() {
-		return correoElectronico;
-	}
-	
-	/**
-	 * 
-	 * @param correoElectronico
-	 */
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setCorreoElectronico(String correoElectronico) {
-		this.correoElectronico = correoElectronico;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+    public String getNombre() {
+        return nombre;
+    }
 
-	public String getContrasena() {
-		return contrasena;
-	}
-	
-	/**
-	 * 
-	 * @param contrasena
-	 */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
-	
-	/**
-	 * Constructor Administrador 
-	 */
-	public Administrador() {
-		super();
-	}
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
 
-	
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
 
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Administrador other = (Administrador) obj;
+        return id == other.id &&
+                Objects.equals(nombre, other.nombre) &&
+                Objects.equals(correoElectronico, other.correoElectronico) &&
+                Objects.equals(contrasena, other.contrasena);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, correoElectronico, contrasena);
+    }
 }

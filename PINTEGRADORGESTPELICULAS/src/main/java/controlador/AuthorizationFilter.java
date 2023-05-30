@@ -14,13 +14,6 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-/**
- * 
- * @author Claudimar
- * version v1. 
- * subimos proyecto a repositorio. 
- * 
- */
 
 @WebFilter("/*")
 public class AuthorizationFilter implements Filter {
@@ -30,7 +23,7 @@ public class AuthorizationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         // Inicializamos la lista de rutas protegidas
-        protectedRoutes = Arrays.asList("/altaPelicula.html", "/galeria.html", "/index1.html");
+       protectedRoutes = Arrays.asList("/altaPelicula.html", "/galeria.html", "/index1.html");
     }
 
     @Override
@@ -46,10 +39,7 @@ public class AuthorizationFilter implements Filter {
 
         // Si la ruta está protegida y el usuario no está autenticado, redireccionamos a la página de inicio de sesión
         if (isProtectedRoute && (session == null || session.getAttribute("username") == null)) {
-            httpResponse.sendRedirect("Login.html");
-        } else if (!isProtectedRoute && session != null && session.getAttribute("username") != null) {
-            // Si la ruta no está protegida y el usuario está autenticado, redireccionamos a la página de inicio
-            httpResponse.sendRedirect("Login.html");
+            httpResponse.sendRedirect("/Login.html");
         } else {
             // Permitimos el acceso a la ruta solicitada
             chain.doFilter(request, response);
@@ -61,4 +51,6 @@ public class AuthorizationFilter implements Filter {
         // Limpieza de recursos
     }
 }
+
+
 

@@ -16,5 +16,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Claudimar/Desktop/apache-tomcat-10.0.23/lib/gson-2.8.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Claudimar/Desktop/Librerias/gson-2.8.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
